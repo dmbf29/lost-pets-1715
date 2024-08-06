@@ -1,0 +1,16 @@
+<div class="container mt-3">
+  <div class="card-product">
+    <%= image_tag "https://loremflickr.com/600/600/#{ @pet.species }?lock=#{ @pet.id }", alt: "text" %>
+    <div class="card-product-infos">
+      <h2><%= @pet.name %></h2>
+      <p><%= @pet.species %></p>
+      <p><i class="fa-solid fa-map-pin"></i> <%= @pet.address %></p>
+      <p><%= @pet.found_on.strftime('%A, %b %d') %></p>
+      <p>
+        <%= link_to pet_path(@pet), class: 'text-decoration-none text-dark', data: { turbo_method: :delete, turbo_confirm: "Was #{@pet.name} returned to its owner?" } do %>
+          <i class="fa-regular fa-circle-xmark"></i> Remove
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
